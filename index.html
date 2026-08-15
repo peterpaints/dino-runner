@@ -53,7 +53,7 @@
   <p class="tip" id="tip">TIP — Hold ↓ mid-air to fast-fall for clutch landings.</p>
 
   <footer>
-    One file, <b>zero network requests</b> — it runs in airplane mode.
+    <b>No external dependencies</b> — after the first visit, it runs in airplane mode.
     Your high score lives in this browser. The dino is counting on you.
   </footer>
 </div>
@@ -61,5 +61,10 @@
 <noscript><p style="text-align:center;color:#8a94a8">This game needs JavaScript enabled.</p></noscript>
 
 <script src="game.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js').catch(() => {});
+}
+</script>
 </body>
 </html>
