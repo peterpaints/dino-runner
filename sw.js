@@ -1,4 +1,4 @@
-const CACHE = 'dino-runner-v2';
+const CACHE = 'dino-runner-v3';
 const ASSETS = ['./', './index.html', './style.css', './mobile.css', './game.js', './mobile.js'];
 
 self.addEventListener('install', event => {
@@ -15,11 +15,21 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request).then(response => {
+        const copy = response.clone();
+        caches.open(CACHE).then(cache => cache.put('./', copy));
+        return response;
+      }).catch(() => caches.match('./'))
+    );
+    return;
+  }
   event.respondWith(
-    caches.match(event.request).then(cached => cached || fetch(event.request).then(response => {
+    fetch(event.request).then(response => {
       const copy = response.clone();
       caches.open(CACHE).then(cache => cache.put(event.request, copy));
       return response;
-    }))
+    }).catch(() => caches.match(event.request))
   );
 });
