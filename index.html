@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0e1219">
 <title>Dino Runner — works offline</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦖</text></svg>">
 <link rel="stylesheet" href="style.css">
@@ -32,7 +33,19 @@
 
     <div class="screen">
       <canvas id="game" width="960" height="300"
-        aria-label="Dinosaur runner game. Press space to jump, down arrow to duck."></canvas>
+        aria-label="Dinosaur runner game. Tap the game or Jump button to jump. Hold Duck to duck or fast-fall."></canvas>
+    </div>
+
+    <div class="mobile-help">TAP SCREEN OR JUMP · HOLD DUCK · LANDSCAPE RECOMMENDED</div>
+    <div class="mobile-controls" aria-label="Touch game controls">
+      <button class="mobile-game-btn duck" id="mobileDuck" type="button">
+        <span class="control-icon">▼</span>
+        <span>DUCK</span>
+      </button>
+      <button class="mobile-game-btn jump" id="mobileJump" type="button">
+        <span class="control-icon">▲</span>
+        <span>JUMP</span>
+      </button>
     </div>
 
     <div class="deck">
@@ -50,7 +63,7 @@
     </div>
   </section>
 
-  <p class="tip" id="tip">TIP — Hold ↓ mid-air to fast-fall for clutch landings.</p>
+  <p class="tip" id="tip">TIP — Hold DUCK mid-air to fast-fall for clutch landings.</p>
 
   <footer>
     <b>No external dependencies</b> — after the first visit, it runs in airplane mode.
@@ -61,6 +74,7 @@
 <noscript><p style="text-align:center;color:#8a94a8">This game needs JavaScript enabled.</p></noscript>
 
 <script src="game.js"></script>
+<script src="mobile.js"></script>
 <script>
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('./sw.js').catch(() => {});
