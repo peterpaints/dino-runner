@@ -1,0 +1,88 @@
+.mobile-controls, .mobile-help { display: none; }
+
+@media (pointer: coarse), (max-width: 760px) {
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    padding: max(12px, env(safe-area-inset-top)) max(8px, env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left));
+    overscroll-behavior: none;
+  }
+  .page { width: 100%; }
+  header { margin-bottom: 10px; gap: 8px; }
+  h1 { font-size: clamp(25px, 8vw, 36px); }
+  .tag { font-size: 9px; letter-spacing: .18em; line-height: 1.4; margin-top: 7px; }
+  .meters { width: 100%; gap: 6px; }
+  .pill, .chip { padding: 6px 10px; font-size: 9px; }
+  .cab { padding: 10px 8px 10px; border-radius: 12px; }
+  .cab-top { font-size: 7px; letter-spacing: .08em; padding: 0 4px 7px; }
+  .screen { border-width: 2px; border-radius: 7px; }
+  canvas { width: 100%; }
+
+  .mobile-help {
+    display: block;
+    text-align: center;
+    font: 700 9px/1.4 ui-monospace, "SF Mono", monospace;
+    letter-spacing: .08em;
+    color: var(--dim);
+    padding: 9px 2px 7px;
+  }
+  .mobile-controls {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 10px;
+    width: 100%;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+  .mobile-game-btn {
+    min-height: 78px;
+    border-radius: 14px;
+    border: 1px solid #465674;
+    border-bottom: 5px solid #090d15;
+    color: #e8edf6;
+    background: linear-gradient(180deg, #303c57, #1d2639);
+    font: 800 15px/1 ui-monospace, "SF Mono", monospace;
+    letter-spacing: .12em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    touch-action: none;
+  }
+  .mobile-game-btn.jump {
+    background: linear-gradient(180deg, #ffae68, #d86d31);
+    border-color: #ffc18c;
+    border-bottom-color: #713313;
+    color: #2a1406;
+  }
+  .mobile-game-btn:active, .mobile-game-btn.pressed {
+    transform: translateY(3px);
+    border-bottom-width: 2px;
+    filter: brightness(1.12);
+  }
+  .control-icon { font-size: 22px; line-height: .8; }
+
+  .keys { display: none; }
+  .deck { padding-top: 10px; justify-content: center; }
+  .btns { width: 100%; display: grid; grid-template-columns: 1fr 1fr; }
+  .btn { min-height: 44px; }
+  .tip { margin-top: 10px; font-size: 9px; line-height: 1.4; padding: 0 8px; }
+  footer { display: none; }
+}
+
+@media (pointer: coarse) and (orientation: landscape) {
+  body { padding-top: max(6px, env(safe-area-inset-top)); }
+  header { display: none; }
+  .cab { padding: 7px; }
+  .cab-top { display: none; }
+  .mobile-help { display: none; }
+  .mobile-controls {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 8px;
+    margin-top: 7px;
+  }
+  .mobile-game-btn { min-height: 58px; }
+  .deck { padding-top: 6px; }
+  .tip { display: none; }
+}
