@@ -1,5 +1,5 @@
-const CACHE = 'dino-runner-v1';
-const ASSETS = ['./', './index.html', './style.css', './game.js'];
+const CACHE = 'dino-runner-v2';
+const ASSETS = ['./', './index.html', './style.css', './mobile.css', './game.js', './mobile.js'];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)));
