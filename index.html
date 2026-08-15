@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dino Runner — works offline</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦖</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <h1>DINO&nbsp;RUNNER<span class="cursor">▮</span></h1>
+      <p class="tag">Endless desert protocol · no signal required</p>
+    </div>
+    <div class="meters">
+      <div class="pill off" id="net"><span class="dot"></span><span id="netTxt">CHECKING…</span></div>
+      <div class="chip">HI&nbsp;<b id="hiTop">00000</b></div>
+    </div>
+  </header>
+
+  <section class="cab">
+    <span class="screw tl"></span><span class="screw tr"></span>
+    <span class="screw bl"></span><span class="screw br"></span>
+
+    <div class="cab-top">
+      <span>PORTABLE ENTERTAINMENT SYSTEM · MODEL T-REX · NO SIGNAL REQUIRED</span>
+      <span class="led" title="power"></span>
+    </div>
+
+    <div class="screen">
+      <canvas id="game" width="960" height="300"
+        aria-label="Dinosaur runner game. Press space to jump, down arrow to duck."></canvas>
+    </div>
+
+    <div class="deck">
+      <div class="keys">
+        <span><kbd>SPACE</kbd> jump</span>
+        <span><kbd>↓</kbd> duck / fast-fall</span>
+        <span><kbd>P</kbd> pause</span>
+        <span><kbd>M</kbd> sound</span>
+        <span class="touch-hint">touch: tap = jump · swipe down = duck</span>
+      </div>
+      <div class="btns">
+        <button class="btn" id="btnSound">SOUND ON</button>
+        <button class="btn primary" id="btnRestart">RESTART</button>
+      </div>
+    </div>
+  </section>
+
+  <p class="tip" id="tip">TIP — Hold ↓ mid-air to fast-fall for clutch landings.</p>
+
+  <footer>
+    One file, <b>zero network requests</b> — it runs in airplane mode.
+    Your high score lives in this browser. The dino is counting on you.
+  </footer>
+</div>
+
+<noscript><p style="text-align:center;color:#8a94a8">This game needs JavaScript enabled.</p></noscript>
+
+<script src="game.js"></script>
+</body>
+</html>
